@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="Jquery/jquery-1.6.3.min.js"></script>
+    
+</head>
+<body>
+    <h1 id="titulo">Hola mundo</h1>
+
+    <button id="btn" class="btn">Cambiar</button>
+
+    <h1 id="saludar"></h1>
+
+    <h1 id="suma">Resultado de la suma es:</h1>
+
+    <script>
+        
+        /* obtener elemento por id */
+        
+        var h1 = document.getElementById("titulo");
+        console.log(h1.innerHTML);
+
+        h1.innerHTML = "hola";
+        
+        console.log(btn)
+        console.log(h1)
+        function cambiar(){
+            h1.style.color = "red";
+            console.log("agregar");
+        }
+        
+        /* manejar eventos de botones */
+
+        var btn = document.getElementsByClassName("btn")
+
+        btn[0].onclick = cambiar;
+        btn[0].addEventListener('mouseover',function(){
+            console.log('detecte el ratón');
+        });
+        btn[0].addEventListener('mouseout',function(){
+            console.log('se fue el ratón');
+        });
+
+        /* funciones arrow */
+
+        var saludoId = document.getElementById("saludar");
+
+        var saludar = nombre => 'hola '+nombre;
+
+        saludoId.innerHTML = saludar('Daniel');
+
+        var sumaId = document.getElementById("suma");
+
+       // var sumar = (num1,num2) => num1+num2;
+
+        var sumar = (num1,num2) => {
+            let num3 = 10;
+            return num1 + num2 + num3;
+        }
+
+        var resultadoSuma = sumar(1,2);
+
+        sumaId.innerHTML = 'Resultado ' + resultadoSuma;
+    
+    </script>
+    
+</body>
+</html>
