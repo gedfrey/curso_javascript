@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://unpkg.com/vuex@3.1.1/dist/vuex.js"></script>
+</head>
+<body>
+
+    <div id="app" class="container my-10">
+        <numero class="container btn btn-primary mt-5"></numero>
+        <contador></contador>
+    </div>
+
+
+    <script>
+
+        Vue.component('numero',{
+
+            template: 
+            `
+            <h1>{{$store.state.count}}</h1>
+            `
+
+        });
+
+        Vue.component('contador',{
+            template:
+            `
+            <div>
+            <button class="btn btn-primary" @click="$store.commit('increment')">+</button>
+            </div>
+            `
+        })
+
+        const store = new Vuex.Store({
+            state: {
+                count:0,
+            },
+            mutations: {
+                increment (state) {
+                    state.count++;
+                }
+            }
+        });
+
+        new Vue({
+            el: '#app',
+            store: store
+        });    
+    </script>
+</body>
+</html>

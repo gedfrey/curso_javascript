@@ -9,6 +9,8 @@ class Pelicula {
     }
 }
 
+/* Herencia */
+
 class Serie extends Pelicula{
 
     constructor(nombre,id,cap){
